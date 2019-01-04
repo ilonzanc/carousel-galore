@@ -1,0 +1,64 @@
+//---------- Font size mixin
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+//---------- Line height mixin
+@mixin line-height($size) {
+  line-height: $size;
+  line-height: calculateRem($size);
+}
+
+
+@function make-color-transparent($color, $opacity: 0.5, $matte: #ffffff) {
+  @if ($matte == transparent) {
+      @return rgba($color, opacity($color) * $opacity);
+  } @else {
+      @return mix(rgba($color, 1), rgba($matte, 1), 100 * opacity($color) * $opacity);
+  }
+}
+
+//---------- Center the unknown
+.display-table{
+  display: table !important;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+
+  &.center{
+      text-align: center !important;
+  }
+
+  .display-table-cell{
+      display: table-cell;
+      vertical-align: middle;
+
+      &.bottom{
+          vertical-align: bottom;
+      }
+
+      &.top{
+          vertical-align: top;
+      }
+  }
+}
+
+//---------- Font smoothing
+@mixin font-smoothing{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0,0,0,0.01) 0 0 1px;
+}
+
+.font-smoothing{
+  @include font-smoothing;
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}

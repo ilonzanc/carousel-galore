@@ -1,0 +1,121 @@
+.display-table {
+  display: table !important;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+.display-table.center {
+  text-align: center !important;
+}
+.display-table .display-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+.display-table .display-table-cell.bottom {
+  vertical-align: bottom;
+}
+.display-table .display-table-cell.top {
+  vertical-align: top;
+}
+
+.font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.carousel-container {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.carousel {
+  margin-bottom: 40px;
+}
+.carousel::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.carousel.transition {
+  transition: all 0.7s;
+}
+
+.carousel-item {
+  float: left;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  color: #fff;
+}
+.carousel-item.pink {
+  background-color: #e9a7c6;
+}
+.carousel-item.mint {
+  background-color: #8ed1b7;
+}
+.carousel-item.blue {
+  background-color: #91d2db;
+}
+.carousel-item.purple {
+  background-color: #c5bdef;
+}
+.carousel-item h2 {
+  margin: auto;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.carousel-navigation {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 50px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  transition: padding 0.2s;
+}
+.carousel-navigation.carousel-navigation__left {
+  left: 0;
+}
+.carousel-navigation.carousel-navigation__left:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-right: 10px;
+}
+.carousel-navigation.carousel-navigation__right {
+  right: 0;
+}
+.carousel-navigation.carousel-navigation__right:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 10px;
+}
+
+/*# sourceMappingURL=main.css.map */
