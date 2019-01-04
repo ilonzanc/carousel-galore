@@ -1,22 +1,22 @@
 (function(){
   //-- Config
   let firstCarousel = document.querySelector('.first-carousel-block');
-  let secondCarousel = document.querySelector('.second-carousel-block');
+  /* let secondCarousel = document.querySelector('.second-carousel-block');
   let thirdCarousel = document.querySelector('.third-carousel-block');
-  let fourthCarousel = document.querySelector('.fourth-carousel-block');
+  let fourthCarousel = document.querySelector('.fourth-carousel-block'); */
 
   window.firstItemIndex = 0;
-  window.secondItemIndex = 0;
+  /* window.secondItemIndex = 0;
   window.thirdItemIndex = 0;
-  window.fourthItemIndex = 0;
+  window.fourthItemIndex = 0; */
 
-  window.thirdSlideInterval;
-  window.fourthSlideInterval;
+  /* window.thirdSlideInterval;
+  window.fourthSlideInterval; */
 
   initCarousel(firstCarousel, 1, window.firstItemIndex, 'default', false);
-  initCarousel(secondCarousel, 1, window.secondItemIndex, 'infinite', false);
+  /* initCarousel(secondCarousel, 1, window.secondItemIndex, 'infinite', false);
   initCarousel(thirdCarousel, 1, window.thirdItemIndex, 'default', true, window.thirdSlideInterval);
-  initCarousel(fourthCarousel, 1, window.fourthItemIndex, 'infinite', true, window.fourthSlideInterval);
+  initCarousel(fourthCarousel, 1, window.fourthItemIndex, 'infinite', true, window.fourthSlideInterval); */
 
   function initCarousel(carouselBlock, factorNumber, index, carouselType, autoSlide, interval = null) {
     let carouselContainer = carouselBlock.querySelector('.carousel-container');
@@ -36,9 +36,8 @@
       carouselLeft.addEventListener('click', function(e) {
         e.preventDefault();
 
-        if (index > 0) {
-          index = index - 1;
-        }
+        index--
+
         if (carouselType == 'default') {
           index = shiftSlide(1, carouselItems, carousel, carouselSlideWidth, index);
         } else if (carouselType == 'infinite') {
@@ -50,9 +49,8 @@
       carouselRight.addEventListener('click', function(e) {
         e.preventDefault();
 
-        if (index < carouselItemsCount) {
-          index = index + 1;
-        }
+        index++
+
         if (carouselType == 'default') {
           index = shiftSlide(-1, carouselItems, carousel, carouselSlideWidth, index);
         } else if (carouselType == 'infinite') {
@@ -132,27 +130,24 @@
     });
     if (direction === 1) {
       console.log('we go left');
-      if (index >= 1) {
-        currentPosition = -(direction * slideWidth) * (index - 1);
+      console.log(index);
+      if (index >= 0) {
+        currentPosition = -(direction * slideWidth) * (index);
         console.log('prev');
-      } else if (index == 0) {
+      } else if (index == -1) {
         console.log('last');
-        index = items.length;
-        currentPosition = -(direction * slideWidth) * (index - 1);
+        index = items.length - 1;
+
+        currentPosition = -(direction * slideWidth) * (index);
       }
 
     } else if (direction === -1) {
       console.log('we go right');
       if (index < items.length) {
-        console.log('next');
         currentPosition = (direction * slideWidth) * index;
       } else if (index == items.length) {
-
         index = 0;
         currentPosition = 0;
-        console.log('first: ' + index);
-      } else {
-        console.log(index);
       }
     }
 
