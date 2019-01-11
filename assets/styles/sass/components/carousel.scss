@@ -48,7 +48,7 @@
 .carousel-navigation {
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 40px;
   z-index: 1000;
   width: 50px;
   padding: 0;
@@ -58,6 +58,7 @@
   align-content: center;
   align-items: center;
   text-align: center;
+  justify-content: space-around;
   transition: padding 0.2s;
 
   &.carousel-navigation__left {
@@ -78,4 +79,20 @@
   }
 
 
+}
+
+.carousel-bullets {
+  text-align: center;
+  span {
+    background-color: $pink;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    opacity: 0.5;
+    display: inline-block;
+    cursor: pointer;
+    &.active {
+      opacity: 1;
+    }
+  }
 }

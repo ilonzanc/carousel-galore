@@ -91,7 +91,7 @@ body {
 .carousel-navigation {
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 40px;
   z-index: 1000;
   width: 50px;
   padding: 0;
@@ -101,6 +101,7 @@ body {
   align-content: center;
   align-items: center;
   text-align: center;
+  justify-content: space-around;
   transition: padding 0.2s;
 }
 .carousel-navigation.carousel-navigation__left {
@@ -116,6 +117,22 @@ body {
 .carousel-navigation.carousel-navigation__right:hover {
   background-color: rgba(255, 255, 255, 0.7);
   padding-left: 10px;
+}
+
+.carousel-bullets {
+  text-align: center;
+}
+.carousel-bullets span {
+  background-color: #e9a7c6;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0.5;
+  display: inline-block;
+  cursor: pointer;
+}
+.carousel-bullets span.active {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=main.css.map */
